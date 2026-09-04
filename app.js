@@ -268,8 +268,12 @@ if (!reduceMotion) {
 
   // Small, persistent cues keep the page alive between scroll events.
   animate('.feature-card > span', { transform: ['translateY(0px) rotate(0deg)', 'translateY(-6px) rotate(4deg)'] }, { duration: 2.4, delay: stagger(.18), repeat: Infinity, repeatType: 'mirror', ease: 'easeInOut' });
-  animate('#format .text-3xl', { transform: ['translateY(0px)', 'translateY(-7px)'] }, { duration: 2.1, delay: stagger(.16), repeat: Infinity, repeatType: 'mirror', ease: 'easeInOut' });
-  animate('#next .absolute', { transform: ['translateY(0px)', 'translateY(12px)'] }, { duration: 4, delay: stagger(.4), repeat: Infinity, repeatType: 'mirror', ease: 'easeInOut' });
+  animate('#nasal-epinephrine-features .text-3xl', { transform: ['translateY(0px)', 'translateY(-7px)'] }, { duration: 2.1, delay: stagger(.16), repeat: Infinity, repeatType: 'mirror', ease: 'easeInOut' });
+  animate('#next .cta-orbit', { transform: ['translateY(0px)', 'translateY(12px)'] }, { duration: 4, delay: stagger(.4), repeat: Infinity, repeatType: 'mirror', ease: 'easeInOut' });
+
+  document.querySelectorAll('.section-media').forEach((frame) => {
+    inView(frame, () => animate(frame, { opacity: [0, 1], transform: ['translateY(28px) scale(.985)', 'translateY(0px) scale(1)'] }, { duration: .85, ease: softEase }), { amount: .18 });
+  });
 }
 
 document.querySelectorAll('.faq').forEach((item) => {
@@ -285,4 +289,11 @@ gsap.to(atmosphere.position, { y: -.72, ease: 'none', scrollTrigger: { trigger: 
 gsap.to(atmosphere.rotation, { z: -.1, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1.2 } });
 gsap.to('.hero-photo', { scale: 1.12, yPercent: 10, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1.25 } });
 gsap.to('.hero-grid', { yPercent: 13, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 } });
+if (!reduceMotion) {
+  document.querySelectorAll('[data-image-parallax]').forEach((media) => {
+    const image = media.matches('img') ? media : media.querySelector('img');
+    if (!image) return;
+    gsap.fromTo(image, { yPercent: -4, scale: 1.06 }, { yPercent: 4, scale: 1.11, ease: 'none', scrollTrigger: { trigger: media, start: 'top bottom', end: 'bottom top', scrub: .85 } });
+  });
+}
 window.addEventListener('scroll', () => { const h = document.documentElement; document.documentElement.style.setProperty('--scroll', `${(h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100}%`); }, { passive: true });
