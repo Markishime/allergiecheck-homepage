@@ -253,16 +253,17 @@ const reveal = (scope, selector, direction = 'y', distance = 30, delay = .1) => 
 
 if (!reduceMotion) {
   animate('.hero-copy', { opacity: 1, transform: 'translateY(0px)' }, { duration: .78, delay: stagger(.12, { startDelay: .18 }), ease: softEase });
-  reveal('#intro', 'p, h2', 'y', 36, .12);
-  reveal('#basics', 'p, h2, .feature-card', 'y', 34, .1);
-  reveal('#fit', 'p, h2, article', 'y', 30, .1);
+  reveal('#trust-strip', 'p', 'y', 18, .08);
+  reveal('#intro', 'p, h2, h3', 'y', 36, .12);
+  reveal('#intended-for', 'p, h2, .feature-card', 'y', 34, .1);
+  reveal('#fit', 'p, h2, h3, article', 'y', 30, .1);
   reveal('#compare', 'p, h2, .mt-10', 'y', 30, .1);
-  reveal('#readiness', '.sticky > *, .step-card', 'x', 30, .1);
-  reveal('#access', 'p, h2, article', 'x', 30, .1);
-  reveal('#practical', 'p, h2, h3', 'y', 26, .08);
-  reveal('#format', 'p, h2, .mt-12 > div', 'y', 36, .11);
-  reveal('#answers', 'p, h2, .faq', 'y', 28, .09);
-  reveal('#next', 'p, h2, a', 'y', 32, .12);
+  reveal('#spray-basics', '.sticky > *, .step-card', 'x', 30, .1);
+  reveal('#use-access', 'p, h2, h3, article', 'x', 30, .1);
+  reveal('#shipping-support', 'p, h2, h3, h4', 'y', 26, .08);
+  reveal('#nasal-epinephrine-features', 'p, h2, h3, h4, .mt-12 > div', 'y', 36, .11);
+  reveal('#nasal-epinephrine-allergy-spray', 'p, h2, h3, h4, article', 'y', 28, .09);
+  reveal('#next', 'p, a', 'y', 32, .12);
   reveal('footer', 'p', 'y', 16, .08);
 
   // Small, persistent cues keep the page alive between scroll events.
